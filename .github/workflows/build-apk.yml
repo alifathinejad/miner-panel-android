@@ -16,6 +16,18 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Diagnose and remove conflicting Python versions
+        run: |
+          echo "Cached Python versions on this runner:"
+          ls /opt/hostedtoolcache/Python/ || true
+          echo "---"
+          which -a python3.14 || true
+          echo "---"
+          sudo rm -rf /opt/hostedtoolcache/Python/3.14* || true
+          sudo rm -f /usr/bin/python3.14 /usr/local/bin/python3.14 || true
+          echo "After cleanup:"
+          ls /opt/hostedtoolcache/Python/ || true
+
       - name: Install system dependencies
         run: |
           sudo apt update
@@ -29,8 +41,6 @@ jobs:
           pip install "buildozer==1.5.0" "cython==0.29.36" "python-for-android==2024.1.21" "virtualenv<21"
 
       - name: Build with Buildozer
-        env:
-          VIRTUALENV_PYTHON: /opt/hostedtoolcache/Python/3.11.16/x64/bin/python3
         run: |
           yes | buildozer android debug
 
