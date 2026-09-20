@@ -23,17 +23,15 @@ jobs:
             zlib1g-dev libncurses5-dev libncursesw5-dev cmake libffi-dev libssl-dev automake \
             build-essential ccache
 
-      - name: Install Buildozer & Cython
+      - name: Install Buildozer & Cython (pinned stable versions)
         run: |
-          pip install --upgrade pip
-          pip install buildozer cython==0.29.36
+          pip install --upgrade "pip<25"
+          pip install "buildozer==1.5.0" "cython==0.29.36" "python-for-android==2024.1.21" "virtualenv<21"
 
       - name: Build with Buildozer
+        env:
+          VIRTUALENV_PYTHON: /opt/hostedtoolcache/Python/3.11.16/x64/bin/python3
         run: |
           yes | buildozer android debug
 
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: miner-panel-apk
-          path: bin/*.apk
+      - name:
