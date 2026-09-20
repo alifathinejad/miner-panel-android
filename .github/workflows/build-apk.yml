@@ -41,6 +41,8 @@ jobs:
           pip install "buildozer==1.5.0" "cython==0.29.36" "python-for-android==2024.1.21" "virtualenv<21"
 
       - name: Build with Buildozer
+        env:
+          JAVA_HOME: ${{ env.JAVA_HOME_17_X64 }}
         run: |
           yes | buildozer android debug
 
