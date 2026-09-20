@@ -34,4 +34,8 @@ jobs:
         run: |
           yes | buildozer android debug
 
-      - name:
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: miner-panel-apk
+          path: bin/*.apk
