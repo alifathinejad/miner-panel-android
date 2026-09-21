@@ -9,7 +9,7 @@ source.include_exts = py,png,jpg,json
 
 version = 2.1
 
-requirements = python3,flask==3.0.3,werkzeug==3.0.3,jinja2==3.1.4,markupsafe==2.1.5,itsdangerous==2.2.0,click==8.1.7,requests,urllib3,certifi,charset-normalizer,idna,beautifulsoup4,soupsieve
+requirements = python3,flask==1.1.4,werkzeug==1.0.1,jinja2==2.11.3,markupsafe==1.1.1,itsdangerous==1.1.0,click==7.1.2,requests,urllib3,certifi,charset-normalizer,idna,beautifulsoup4,soupsieve
 
 orientation = portrait
 fullscreen = 0
