@@ -9,17 +9,13 @@ source.include_exts = py,png,jpg,json
 
 version = 2.1
 
-requirements = python3,flask,werkzeug,jinja2,markupsafe,itsdangerous,click,requests,urllib3,certifi,charset-normalizer,idna,beautifulsoup4,soupsieve
+requirements = python3,flask==3.0.3,werkzeug==3.0.3,jinja2==3.1.4,markupsafe==2.1.5,itsdangerous==2.2.0,click==8.1.7,requests,urllib3,certifi,charset-normalizer,idna,beautifulsoup4,soupsieve
 
 orientation = portrait
 fullscreen = 0
 
 p4a.bootstrap = webview
 p4a.port = 2096
-
-# نسخه‌ی پایدار و امتحان‌شده‌ی python-for-android که پیش‌فرضش پایتون 3.11
-# است (نسخه‌های جدیدتر به‌صورت پیش‌فرض می‌روند سراغ پایتون 3.14 که با ابزار
-# pip فعلی مشکل سازگاری دارد و باعث fail شدن Build می‌شود).
 p4a.branch = v2024.01.21
 
 android.permissions = INTERNET,ACCESS_NETWORK_STATE,ACCESS_WIFI_STATE,WAKE_LOCK,FOREGROUND_SERVICE
